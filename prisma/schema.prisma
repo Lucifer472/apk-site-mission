@@ -1,0 +1,49 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+ 
+generator client {
+  provider = "prisma-client-js"
+}
+ 
+model User {
+  id            String          @id @default(cuid())
+  name          String?
+  password      String?
+  email         String?         @unique
+  emailVerified DateTime?
+  image         String?
+ 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+ 
+ model Application {
+  id    String  @id
+
+  name String
+  icon String  @db.LongText
+  category String
+  rating Int
+  age Int
+  download String
+  clicked  Int    @default(1)
+  link String
+  developer  String
+  version String
+  features  String  @db.LongText
+
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  images Images[]
+ }
+
+ model Images {
+  id    Int   @id   @default(autoincrement())
+  url  String
+  
+  applicationId   String
+  Application   Application @relation(fields: [applicationId], references: [id],onDelete: Cascade)
+ }
