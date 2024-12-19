@@ -30,7 +30,7 @@ export default function RootLayout({
       <body className={cn("antialiased", roboto.className)}>
         <Script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7775590737760034"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1423327794485856"
           crossOrigin="anonymous"
           strategy="afterInteractive"
         ></Script>
